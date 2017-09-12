@@ -21,7 +21,6 @@ provider:
   name: aws
   runtime: nodejs6.10
   stage: prod
-  profile: personal
   region: ap-southeast-2
 
 # you can overwrite defaults here
