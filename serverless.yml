@@ -59,6 +59,8 @@ provider:
 functions:
   apiaiHook:
     handler: handler.apiaiHook
+    environment:
+      PTV_URL: http://timetableapi.ptv.vic.gov.au/v3/departures/route_type/2/stop/22266?direction_id=71&max_results=5&devid=3000367&signature=7DDD4895FA22422439FBD5882D1A8FD6EB3F2CDA
     events:
       - http:
           path: apiai
