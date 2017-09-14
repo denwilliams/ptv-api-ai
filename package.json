@@ -1,0 +1,23 @@
+{
+  "name": "ptv-api-ai",
+  "version": "1.0.0",
+  "description": "API.AI bot for Google Actions to look up next bus/train/tram on PTV",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denwilliams/ptv-api-ai.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denwilliams/ptv-api-ai/issues"
+  },
+  "homepage": "https://github.com/denwilliams/ptv-api-ai#readme",
+  "dependencies": {
+    "got": "^7.1.0",
+    "node-geocoder": "^3.20.0"
+  }
+}
