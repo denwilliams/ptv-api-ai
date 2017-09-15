@@ -48,9 +48,14 @@ module.exports.apiaiHook = (event, context, callback) => {
       geocoder.geocode(addr)
       .then((res) => {
         console.log(`You're near ${res[0].latitude}, ${res[0].longitude}`);
-        callback(null, {
-          speech: `You're near ${res[0].latitude}, ${res[0].longitude}`
-        });
+
+        const response = {
+          statusCode: 200,
+          body: JSON.stringify({
+            speech: `You're near ${res[0].latitude}, ${res[0].longitude}`
+          }),
+        };
+        callback(null, response);
       })
       .catch((err) => {
         console.log(`Failed - ${err}`);
