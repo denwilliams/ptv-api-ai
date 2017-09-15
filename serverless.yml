@@ -20,6 +20,7 @@ service: aws-nodejs # NOTE: update this with your service name
 provider:
   name: aws
   runtime: nodejs6.10
+  memorySize: 128
   stage: prod
   region: ap-southeast-2
 
@@ -60,6 +61,12 @@ functions:
   apiaiHook:
     handler: handler.apiaiHook
     environment:
+      PTV_USER_ID: ${env:PTV_USER_ID}
+      PTV_API_KEY: ${env:PTV_API_KEY}
+      ROUTE_ID: 1666
+      STOP_ID: 22266
+      ROUTE_TYPE: 2 # bus
+      DIRECTION_ID: 71 # moonee ponds
       PTV_URL: http://timetableapi.ptv.vic.gov.au/v3/departures/route_type/2/stop/22266?direction_id=71&max_results=5&devid=3000367&signature=7DDD4895FA22422439FBD5882D1A8FD6EB3F2CDA
     events:
       - http:
