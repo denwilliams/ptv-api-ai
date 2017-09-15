@@ -42,7 +42,7 @@ module.exports.apiaiHook = (event, context, callback) => {
       });
       break;
     case 'favourite.set':
-      geocoder.geocode(body.parameters.address + ', Melbourne, Australia')
+      geocoder.geocode(body.result.parameters.address + ', Melbourne, Australia')
       .then((res) => {
         callback({
           speech: `You're near ${res[0].latitude}, ${res[0].longitude}`
