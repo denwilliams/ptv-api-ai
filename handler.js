@@ -42,14 +42,18 @@ module.exports.apiaiHook = (event, context, callback) => {
       });
       break;
     case 'favourite.set':
-      geocoder.geocode(body.result.parameters.address + ', Melbourne, Australia')
+      const addr = body.result.parameters.address + ', Melbourne, Australia';
+      console.log('Looking for stops near ' + addr);
+
+      geocoder.geocode(addr)
       .then((res) => {
+        console.log(`You're near ${res[0].latitude}, ${res[0].longitude}`);
         callback({
           speech: `You're near ${res[0].latitude}, ${res[0].longitude}`
         });
-        console.log(res[0]);
       })
       .catch((err) => {
+        console.log(`Failed - ${err}`);
         callback(err);
       });
       break;
